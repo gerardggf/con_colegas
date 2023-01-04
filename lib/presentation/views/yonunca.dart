@@ -1,30 +1,29 @@
 import 'package:con_colegas/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/datos/datos_quienesmasprobable.dart';
+import 'package:con_colegas/domain/datos/datos_yonunca.dart';
 
-class QEMPScreen extends StatefulWidget {
-  const QEMPScreen({Key? key}) : super(key: key);
+class YoNuncaPage extends StatefulWidget {
+  const YoNuncaPage({Key? key}) : super(key: key);
 
   @override
-  _QEMPScreenState createState() => _QEMPScreenState();
+  _YoNuncaPageState createState() => _YoNuncaPageState();
 }
 
-class _QEMPScreenState extends State<QEMPScreen> {
+class _YoNuncaPageState extends State<YoNuncaPage> {
   @override
   Widget build(BuildContext context) {
-    var frase = datosQuienesmasprobable().toString();
+    var frase = datos_yonunca().toString();
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            "Quién es más probable",
-            style: TextStyle(fontSize: 20, color: Colors.white),
-          ),
-          leading: const BackButton(color: Colors.white),
-          backgroundColor: kColrPrim,
-          elevation: 0,
-          centerTitle: true,
-        ),
+            title: const Text(
+              "Yo nunca",
+              style: TextStyle(fontSize: 20, color: Colors.white),
+            ),
+            leading: const BackButton(color: Colors.white),
+            backgroundColor: kColrPrim,
+            elevation: 0,
+            centerTitle: true),
         body: SingleChildScrollView(
             child: Center(
                 child: Padding(
@@ -34,7 +33,7 @@ class _QEMPScreenState extends State<QEMPScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           const Text(
-                            "\n¿Quién es más probable que...\n",
+                            "\n\nA mí nunca / Yo nunca\n",
                             style: TextStyle(
                                 fontSize: 27, fontWeight: FontWeight.bold),
                           ),
@@ -44,7 +43,7 @@ class _QEMPScreenState extends State<QEMPScreen> {
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   color:
-                                      const Color.fromARGB(255, 194, 243, 247),
+                                      const Color.fromARGB(255, 255, 231, 194),
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
                                     BoxShadow(
@@ -84,7 +83,7 @@ class _QEMPScreenState extends State<QEMPScreen> {
                                 fontWeight: FontWeight.bold, fontSize: 10),
                           ),
                           const Text(
-                            "Alguien lee la frase en voz alta y entre todos señaláis a la de tres a la persona con la que más identifiquéis con esta.",
+                            "Las personas que SÍ hayan hecho lo que indica la frase beben un trago de su bebida.",
                             style: TextStyle(fontSize: 10),
                           )
                         ])))));

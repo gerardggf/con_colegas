@@ -21,6 +21,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.10.0"
+  flutter_lints: ^2.0.0
 
 flutter_icons:
   android: "launcher_icon"
@@ -37,9 +38,8 @@ flutter_icons:
     image_path: "assets/app_logo.png"
     icon_size: 48 # min:48, max:256, default: 48
 
-  
-  flutter_lints: ^2.0.0
-
 flutter:
-
   uses-material-design: true
+
+  assets:
+    - assets/app_logo.png

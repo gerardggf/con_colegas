@@ -1,15 +1,15 @@
 import 'package:con_colegas/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/datos/datos_verdadoreto.dart';
+import 'package:con_colegas/domain/datos/datos_verdadoreto.dart';
 
-class VerdadORetoScreen extends StatefulWidget {
-  const VerdadORetoScreen({Key? key}) : super(key: key);
+class VerdadORetoPage extends StatefulWidget {
+  const VerdadORetoPage({Key? key}) : super(key: key);
 
   @override
-  _VerdadORetoScreenState createState() => _VerdadORetoScreenState();
+  _VerdadORetoPageState createState() => _VerdadORetoPageState();
 }
 
-class _VerdadORetoScreenState extends State<VerdadORetoScreen> {
+class _VerdadORetoPageState extends State<VerdadORetoPage> {
   var paramVoR = "";
   var fraseVoR = "\nPulsa 'Verdad' o 'Reto' para empezar";
   var colorVoR = Colors.black;
@@ -44,11 +44,11 @@ class _VerdadORetoScreenState extends State<VerdadORetoScreen> {
                           });
                         },
                         style: OutlinedButton.styleFrom(
+                            foregroundColor: kAppB,
                             padding: const EdgeInsets.all(15),
-                            onSurface: kAppB,
+                            disabledForegroundColor: kAppB.withOpacity(0.38),
                             minimumSize: const Size(double.infinity, 70),
                             backgroundColor: Colors.white,
-                            primary: kAppB,
                             side: const BorderSide(color: kColrPrim, width: 2)),
                         child: const Text(
                           "Verdad",
@@ -89,11 +89,11 @@ class _VerdadORetoScreenState extends State<VerdadORetoScreen> {
                           });
                         },
                         style: OutlinedButton.styleFrom(
+                            foregroundColor: kAppB,
                             padding: const EdgeInsets.all(15),
-                            onSurface: kAppB,
+                            disabledForegroundColor: kAppB.withOpacity(0.38),
                             minimumSize: const Size(double.infinity, 70),
                             backgroundColor: Colors.white,
-                            primary: kAppB,
                             side: const BorderSide(color: kColrPrim, width: 2)),
                         child: const Text(
                           "Reto",

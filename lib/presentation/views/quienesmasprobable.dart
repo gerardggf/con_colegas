@@ -1,29 +1,30 @@
 import 'package:con_colegas/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/datos/datos_yonunca.dart';
+import 'package:con_colegas/domain/datos/datos_quienesmasprobable.dart';
 
-class YoNuncaScreen extends StatefulWidget {
-  const YoNuncaScreen({Key? key}) : super(key: key);
+class QuienEsMasProbablePage extends StatefulWidget {
+  const QuienEsMasProbablePage({Key? key}) : super(key: key);
 
   @override
-  _YoNuncaScreenState createState() => _YoNuncaScreenState();
+  _QuienEsMasProbablePageState createState() => _QuienEsMasProbablePageState();
 }
 
-class _YoNuncaScreenState extends State<YoNuncaScreen> {
+class _QuienEsMasProbablePageState extends State<QuienEsMasProbablePage> {
   @override
   Widget build(BuildContext context) {
-    var frase = datos_yonunca().toString();
+    var frase = datosQuienesmasprobable().toString();
 
     return Scaffold(
         appBar: AppBar(
-            title: const Text(
-              "Yo nunca",
-              style: TextStyle(fontSize: 20, color: Colors.white),
-            ),
-            leading: const BackButton(color: Colors.white),
-            backgroundColor: kColrPrim,
-            elevation: 0,
-            centerTitle: true),
+          title: const Text(
+            "Quién es más probable",
+            style: TextStyle(fontSize: 20, color: Colors.white),
+          ),
+          leading: const BackButton(color: Colors.white),
+          backgroundColor: kColrPrim,
+          elevation: 0,
+          centerTitle: true,
+        ),
         body: SingleChildScrollView(
             child: Center(
                 child: Padding(
@@ -33,7 +34,7 @@ class _YoNuncaScreenState extends State<YoNuncaScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           const Text(
-                            "\n\nA mí nunca / Yo nunca\n",
+                            "\n¿Quién es más probable que...\n",
                             style: TextStyle(
                                 fontSize: 27, fontWeight: FontWeight.bold),
                           ),
@@ -43,7 +44,7 @@ class _YoNuncaScreenState extends State<YoNuncaScreen> {
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   color:
-                                      const Color.fromARGB(255, 255, 231, 194),
+                                      const Color.fromARGB(255, 194, 243, 247),
                                   borderRadius: BorderRadius.circular(5),
                                   boxShadow: [
                                     BoxShadow(
@@ -83,7 +84,7 @@ class _YoNuncaScreenState extends State<YoNuncaScreen> {
                                 fontWeight: FontWeight.bold, fontSize: 10),
                           ),
                           const Text(
-                            "Las personas que SÍ hayan hecho lo que indica la frase beben un trago de su bebida.",
+                            "Alguien lee la frase en voz alta y entre todos señaláis a la de tres a la persona con la que más identifiquéis con esta.",
                             style: TextStyle(fontSize: 10),
                           )
                         ])))));

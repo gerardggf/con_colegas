@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:con_colegas/screens/configuracion.dart';
+import 'package:con_colegas/presentation/views/configuracion.dart';
 
 //NO SUPERAR AL LONGIUTD DE LAS FRASES YA EXISTENTES
 

@@ -1,12 +1,12 @@
-import 'package:con_colegas/screens/configQEMP.dart';
+import 'package:con_colegas/presentation/views/configQEMP.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ConfiguracionScreen extends StatefulWidget {
-  const ConfiguracionScreen({Key? key}) : super(key: key);
+class ConfiguracionPage extends StatefulWidget {
+  const ConfiguracionPage({Key? key}) : super(key: key);
 
   @override
-  _ConfiguracionScreenState createState() => _ConfiguracionScreenState();
+  _ConfiguracionPageState createState() => _ConfiguracionPageState();
 }
 
 bool ynnhot = true;
@@ -17,7 +17,7 @@ bool ynnmanresa = false;
 bool vorglobal = false;
 bool qempfrasespers = false;
 
-class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
+class _ConfiguracionPageState extends State<ConfiguracionPage> {
   @override
   Widget build(BuildContext context) {
     setState(() {
@@ -145,7 +145,7 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const ConfigQEMPScreen()),
+                                            const ConfigQuienEsMasProbablePage()),
                                   );
                                 },
                                 child: const Padding(

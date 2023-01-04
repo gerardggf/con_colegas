@@ -1,7 +1,10 @@
 import 'package:con_colegas/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/screens/home.dart';
+import 'package:con_colegas/presentation/views/home.dart';
 import 'package:flutter/services.dart';
+
+import 'presentation/routes/app_routes.dart';
+import 'presentation/routes/routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,11 +21,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Con colegas',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: kAppB,
-        ),
-        home: const HomeScreen());
+      title: 'Con colegas',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: kAppB,
+      ),
+      home: const HomeScreen(),
+      initialRoute: Routes.initialRoute,
+      routes: appRoutes,
+    );
   }
 }

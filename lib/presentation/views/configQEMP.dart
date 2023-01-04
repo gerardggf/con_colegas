@@ -1,14 +1,15 @@
-import 'package:con_colegas/datos/datos_quienesmasprobable.dart';
+import 'package:con_colegas/domain/datos/datos_quienesmasprobable.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
 
-class ConfigQEMPScreen extends StatefulWidget {
-  const ConfigQEMPScreen({Key? key}) : super(key: key);
+class ConfigQuienEsMasProbablePage extends StatefulWidget {
+  const ConfigQuienEsMasProbablePage({Key? key}) : super(key: key);
 
   @override
-  _ConfigQEMPScreenState createState() => _ConfigQEMPScreenState();
+  _ConfigQuienEsMasProbablePageState createState() =>
+      _ConfigQuienEsMasProbablePageState();
 }
 
 List listaFrasesCustom = [];
@@ -17,7 +18,8 @@ String valor = "";
 
 //FRASES PERSONALIZADAS PARA EL "QUIÉN ES MÁS PROBABLE QUE"
 
-class _ConfigQEMPScreenState extends State<ConfigQEMPScreen> {
+class _ConfigQuienEsMasProbablePageState
+    extends State<ConfigQuienEsMasProbablePage> {
   @override
   Widget build(BuildContext context) {
     setState(() {
@@ -58,11 +60,12 @@ class _ConfigQEMPScreenState extends State<ConfigQEMPScreen> {
                                 saveQEMPpref();
                               },
                               style: OutlinedButton.styleFrom(
+                                foregroundColor: kColrPrim,
                                 padding: const EdgeInsets.all(10),
-                                onSurface: kAppB,
+                                disabledForegroundColor:
+                                    kAppB.withOpacity(0.38),
                                 minimumSize: const Size(double.infinity, 40),
                                 backgroundColor: kAppB,
-                                primary: kColrPrim,
                               ),
                               child: const Text(
                                   "Agregar frase personalizada QEMP",
@@ -127,11 +130,12 @@ class _ConfigQEMPScreenState extends State<ConfigQEMPScreen> {
                                     });
                               },
                               style: OutlinedButton.styleFrom(
+                                foregroundColor: kColrPrim,
                                 padding: const EdgeInsets.all(10),
-                                onSurface: kAppB,
+                                disabledForegroundColor:
+                                    kAppB.withOpacity(0.38),
                                 minimumSize: const Size(double.infinity, 40),
                                 backgroundColor: Colors.red,
-                                primary: kColrPrim,
                               ),
                               child: const Text("Borrar todas",
                                   style: TextStyle(

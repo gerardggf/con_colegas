@@ -1,10 +1,8 @@
 import 'dart:math';
-import 'package:con_colegas/screens/configuracion.dart';
+import 'package:con_colegas/presentation/views/configuracion.dart';
 
 List listadoYNN = [
   "Me he comido un moco",
-  "He odiado Israel",
-  "Me han pintado las uñas",
   "Se me ha caido el móvil al váter",
   "Me he metido en una pelea a puñetazos",
   "He visto Titanic entera",
@@ -88,7 +86,6 @@ List listadoYNNhot = [
   "He jugado al strip poker",
   "He sido juguetón con alguna comida",
   "Me he querido acostar con ninguno de los presentes",
-  "Me he/han metido un dedo en el culo",
   "Me han / He practicado sexo anal",
   "He sido pillado masturbándome",
   "Me he acostado con alguien del mismo sexo",
@@ -97,7 +94,6 @@ List listadoYNNhot = [
   "Me han esposado a la cama",
   "Me ha gustado el BDSM",
   "Me he lesionado teniendo relaciones sexuales",
-  "Me he tragado el semen de mi pareja",
   "Me he masturbado con mi pareja en el cine",
   "Me he excitado estudiando y me he tenido que masturbar",
   "He usado bolas chinas",
@@ -138,7 +134,7 @@ List listadoYNNhot = [
   "He enviado una foto o un video completamente desnudo",
 ];
 List listadoYNNterrasa = [
-  "He colado una cerveza en La República",
+  "He colado una cerveza en La Repu",
   "He hecho el paso de baile prohibido en la República o PickWick",
   "Me he tirado al suelo porque me encontraba muy mal",
   "Me han robado en la Rasa",
