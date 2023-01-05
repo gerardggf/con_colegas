@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:con_colegas/presentation/views/configuracion.dart';
 
+import '../../constants.dart';
+
 //NO SUPERAR AL LONGIUTD DE LAS FRASES YA EXISTENTES
 
 List listadoQEMP = [

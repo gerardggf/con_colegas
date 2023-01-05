@@ -1,6 +1,6 @@
 import 'package:con_colegas/constants.dart';
 import 'package:con_colegas/presentation/routes/routes.dart';
-import 'package:con_colegas/presentation/views/configQEMP.dart';
+import 'package:con_colegas/presentation/views/config_qemp.dart';
 import 'package:con_colegas/presentation/views/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:con_colegas/presentation/views/configuracion.dart';
@@ -15,11 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    setState(() {
-      getPrefs();
-      getQEMPpref();
-    });
-
     final height = MediaQuery.of(context).size.height;
     final bloque = height / 10;
 
@@ -84,11 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     route: Routes.quienEsMasProbable),
                 OutlinedButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ConfiguracionPage()),
-                    );
+                    Navigator.pushNamed(context, Routes.configuracion);
                   },
                   style: OutlinedButton.styleFrom(
                     padding: const EdgeInsets.all(20),
@@ -96,8 +87,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: kAppB.withOpacity(0.65),
                     side: const BorderSide(color: kColrPrim, width: 1),
                   ),
-                  child: const Text("Configuración",
-                      style: TextStyle(fontSize: 18, color: Colors.black)),
+                  child: const Text(
+                    "Configuración",
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
                 ),
                 const Text("Juegos de beber. Con colegas, 2022")
               ]),
@@ -107,9 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void onSelected(BuildContext context, int item) {
     switch (item) {
       case 0:
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => const ConfiguracionPage()),
-        );
+        Navigator.pushNamed(context, Routes.configuracion);
         break;
       case 1:
         showModalBottomSheet(

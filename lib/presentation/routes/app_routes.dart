@@ -1,3 +1,4 @@
+import 'package:con_colegas/presentation/views/config_qemp.dart';
 import 'package:con_colegas/presentation/views/configuracion.dart';
 import 'package:con_colegas/presentation/views/quienesmasprobable.dart';
 import 'package:con_colegas/presentation/views/verdadoreto.dart';
@@ -18,5 +19,6 @@ Map<String, Widget Function(BuildContext)> get appRoutes {
     Routes.quienEsMasProbable: (_) => const QuienEsMasProbablePage(),
     Routes.verdadOReto: (_) => const VerdadORetoPage(),
     Routes.configuracion: (_) => const ConfiguracionPage(),
+    Routes.configQemp: (_) => const ConfigQuienEsMasProbablePage(),
   };
 }

@@ -7,4 +7,5 @@ class Routes {
   static const quienEsMasProbable = "/quien-es-mas-probable";
   static const verdadOReto = "/verdad-o-reto";
   static const configuracion = "/configuracion";
+  static const configQemp = "/config-qemp";
 }
