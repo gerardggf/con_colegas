@@ -1,34 +1,48 @@
-import 'package:con_colegas/constants.dart';
+import 'package:con_colegas/app/core/global_providers.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/presentation/views/home.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import 'presentation/routes/app_routes.dart';
-import 'presentation/routes/routes.dart';
+import 'app/core/generated/translations.g.dart';
+import 'app/presentation/con_colegas_app.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]).then((value) => runApp(const MyApp()));
-  runApp(const MyApp());
+
+  await SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ],
+  );
+
+  final sharedPreferences = await SharedPreferences.getInstance();
+
+  runApp(
+    Root(
+      providerOverrides: [
+        sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+      ],
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Root extends StatelessWidget {
+  const Root({
+    super.key,
+    required this.providerOverrides,
+  });
+
+  final List<Override> providerOverrides;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Con colegas',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: kAppB,
+    return ProviderScope(
+      overrides: providerOverrides,
+      child: TranslationProvider(
+        child: const ConColegasApp(),
       ),
-      home: const HomeScreen(),
-      initialRoute: Routes.initialRoute,
-      routes: appRoutes,
     );
   }
 }

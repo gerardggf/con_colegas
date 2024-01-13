@@ -1,15 +1,15 @@
-import 'package:con_colegas/constants.dart';
+import 'package:con_colegas/app/core/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/domain/datos/datos_verdadoreto.dart';
+import 'package:con_colegas/app/data/datos/datos_verdadoreto.dart';
 
-class VerdadORetoPage extends StatefulWidget {
-  const VerdadORetoPage({Key? key}) : super(key: key);
+class VerdadORetoView extends StatefulWidget {
+  const VerdadORetoView({Key? key}) : super(key: key);
 
   @override
-  _VerdadORetoPageState createState() => _VerdadORetoPageState();
+  State<VerdadORetoView> createState() => _VerdadORetoViewState();
 }
 
-class _VerdadORetoPageState extends State<VerdadORetoPage> {
+class _VerdadORetoViewState extends State<VerdadORetoView> {
   var paramVoR = "";
   var fraseVoR = "\nPulsa 'Verdad' o 'Reto' para empezar";
   var colorVoR = Colors.black;
@@ -23,7 +23,7 @@ class _VerdadORetoPageState extends State<VerdadORetoPage> {
             style: TextStyle(fontSize: 20, color: Colors.white),
           ),
           leading: const BackButton(color: Colors.white),
-          backgroundColor: kColrPrim,
+          backgroundColor: AppColors.primary,
           elevation: 0,
           centerTitle: true,
         ),
@@ -44,12 +44,14 @@ class _VerdadORetoPageState extends State<VerdadORetoPage> {
                           });
                         },
                         style: OutlinedButton.styleFrom(
-                            foregroundColor: kAppB,
+                            foregroundColor: AppColors.secondary,
                             padding: const EdgeInsets.all(15),
-                            disabledForegroundColor: kAppB.withOpacity(0.38),
+                            disabledForegroundColor:
+                                AppColors.secondary.withOpacity(0.38),
                             minimumSize: const Size(double.infinity, 70),
                             backgroundColor: Colors.white,
-                            side: const BorderSide(color: kColrPrim, width: 2)),
+                            side: const BorderSide(
+                                color: AppColors.primary, width: 2)),
                         child: const Text(
                           "Verdad",
                           style: TextStyle(fontSize: 25, color: Colors.green),
@@ -89,18 +91,20 @@ class _VerdadORetoPageState extends State<VerdadORetoPage> {
                           });
                         },
                         style: OutlinedButton.styleFrom(
-                            foregroundColor: kAppB,
+                            foregroundColor: AppColors.secondary,
                             padding: const EdgeInsets.all(15),
-                            disabledForegroundColor: kAppB.withOpacity(0.38),
+                            disabledForegroundColor:
+                                AppColors.secondary.withOpacity(0.38),
                             minimumSize: const Size(double.infinity, 70),
                             backgroundColor: Colors.white,
-                            side: const BorderSide(color: kColrPrim, width: 2)),
+                            side: const BorderSide(
+                                color: AppColors.primary, width: 2)),
                         child: const Text(
                           "Reto",
                           style: TextStyle(fontSize: 25, color: Colors.red),
                         ),
                       ),
-                      Column(children: const <Widget>[
+                      const Column(children: <Widget>[
                         Text(
                           "\n\nInstrucciones:\n",
                           style: TextStyle(

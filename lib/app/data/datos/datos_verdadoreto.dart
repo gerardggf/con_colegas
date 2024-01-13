@@ -1,8 +1,6 @@
 import 'dart:math';
 
-import 'package:con_colegas/presentation/views/configuracion.dart';
-
-import '../../constants.dart';
+import '../../core/constants.dart';
 
 List listadoVerdad = [
   "¿Te acostarías con algunxs de los presentes?",

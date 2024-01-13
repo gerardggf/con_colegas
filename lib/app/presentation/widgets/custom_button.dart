@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../../constants.dart';
+import '../../core/constants.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.label, required this.route});
@@ -15,12 +16,12 @@ class CustomButton extends StatelessWidget {
 
     return OutlinedButton(
       onPressed: () {
-        Navigator.pushNamed(context, route);
+        context.pushNamed(route);
       },
       style: OutlinedButton.styleFrom(
         padding: const EdgeInsets.all(20),
         minimumSize: Size(double.infinity, bloque),
-        side: const BorderSide(color: kColrPrim, width: 2),
+        side: const BorderSide(color: AppColors.primary, width: 2),
       ),
       child: Text(
         label,

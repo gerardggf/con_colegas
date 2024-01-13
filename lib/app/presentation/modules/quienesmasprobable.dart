@@ -1,15 +1,15 @@
-import 'package:con_colegas/constants.dart';
+import 'package:con_colegas/app/core/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/domain/datos/datos_quienesmasprobable.dart';
+import 'package:con_colegas/app/data/datos/datos_quienesmasprobable.dart';
 
-class QuienEsMasProbablePage extends StatefulWidget {
-  const QuienEsMasProbablePage({Key? key}) : super(key: key);
+class QuienEsMasProbableView extends StatefulWidget {
+  const QuienEsMasProbableView({Key? key}) : super(key: key);
 
   @override
-  _QuienEsMasProbablePageState createState() => _QuienEsMasProbablePageState();
+  State<QuienEsMasProbableView> createState() => _QuienEsMasProbableViewState();
 }
 
-class _QuienEsMasProbablePageState extends State<QuienEsMasProbablePage> {
+class _QuienEsMasProbableViewState extends State<QuienEsMasProbableView> {
   @override
   Widget build(BuildContext context) {
     var frase = datosQuienesmasprobable().toString();
@@ -21,7 +21,7 @@ class _QuienEsMasProbablePageState extends State<QuienEsMasProbablePage> {
             style: TextStyle(fontSize: 20, color: Colors.white),
           ),
           leading: const BackButton(color: Colors.white),
-          backgroundColor: kColrPrim,
+          backgroundColor: AppColors.primary,
           elevation: 0,
           centerTitle: true,
         ),

@@ -1,25 +1,23 @@
-import 'package:con_colegas/domain/datos/datos_quienesmasprobable.dart';
+import 'package:con_colegas/app/data/datos/datos_quienesmasprobable.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../constants.dart';
+import '../../core/constants.dart';
+import '../global/utils/get_qemp_pref.dart';
 
-class ConfigQuienEsMasProbablePage extends StatefulWidget {
-  const ConfigQuienEsMasProbablePage({Key? key}) : super(key: key);
+class SettingsQuienEsMasProbablePage extends StatefulWidget {
+  const SettingsQuienEsMasProbablePage({Key? key}) : super(key: key);
 
   @override
-  _ConfigQuienEsMasProbablePageState createState() =>
-      _ConfigQuienEsMasProbablePageState();
+  State<SettingsQuienEsMasProbablePage> createState() =>
+      _SettingsQuienEsMasProbablePageState();
 }
-
-List listaFrasesCustom = [];
-var frasesCustom = "";
-String valor = "";
 
 //FRASES PERSONALIZADAS PARA EL "QUIÉN ES MÁS PROBABLE QUE"
 
-class _ConfigQuienEsMasProbablePageState
-    extends State<ConfigQuienEsMasProbablePage> {
+class _SettingsQuienEsMasProbablePageState
+    extends State<SettingsQuienEsMasProbablePage> {
   @override
   Widget build(BuildContext context) {
     setState(() {
@@ -60,12 +58,12 @@ class _ConfigQuienEsMasProbablePageState
                                 saveQEMPpref();
                               },
                               style: OutlinedButton.styleFrom(
-                                foregroundColor: kColrPrim,
+                                foregroundColor: AppColors.primary,
                                 padding: const EdgeInsets.all(10),
                                 disabledForegroundColor:
-                                    kAppB.withOpacity(0.38),
+                                    AppColors.secondary.withOpacity(0.38),
                                 minimumSize: const Size(double.infinity, 40),
-                                backgroundColor: kAppB,
+                                backgroundColor: AppColors.secondary,
                               ),
                               child: const Text(
                                   "Agregar frase personalizada QEMP",
@@ -107,7 +105,7 @@ class _ConfigQuienEsMasProbablePageState
                                           TextButton(
                                             child: const Text("Cancelar"),
                                             onPressed: () {
-                                              Navigator.pop(context);
+                                              context.pop(context);
                                               setState(() {
                                                 listaFrasesCustom;
                                               });
@@ -118,7 +116,7 @@ class _ConfigQuienEsMasProbablePageState
                                             child: const Text("Sí"),
                                             onPressed: () {
                                               deleteAllQEMPpref();
-                                              Navigator.pop(context);
+                                              context.pop(context);
                                               setState(() {
                                                 listaFrasesCustom;
                                               });
@@ -130,10 +128,10 @@ class _ConfigQuienEsMasProbablePageState
                                     });
                               },
                               style: OutlinedButton.styleFrom(
-                                foregroundColor: kColrPrim,
+                                foregroundColor: AppColors.primary,
                                 padding: const EdgeInsets.all(10),
                                 disabledForegroundColor:
-                                    kAppB.withOpacity(0.38),
+                                    AppColors.secondary.withOpacity(0.38),
                                 minimumSize: const Size(double.infinity, 40),
                                 backgroundColor: Colors.red,
                               ),
@@ -181,11 +179,4 @@ class _ConfigQuienEsMasProbablePageState
       listaFrasesCustom;
     });
   }
-}
-
-Future getQEMPpref() async {
-  SharedPreferences customFrases = await SharedPreferences.getInstance();
-
-  listaFrasesCustom = customFrases.getStringList('frasesCustomQEMP') ?? [];
-  datosCustomQEMP(listaFrasesCustom);
 }

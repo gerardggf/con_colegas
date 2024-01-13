@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../constants.dart';
-import '../presentation/views/configuracion.dart';
+import '../core/constants.dart';
 
 class FrasesKits {
   FrasesKits._();

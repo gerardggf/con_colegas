@@ -1,18 +1,19 @@
-import 'package:con_colegas/presentation/views/config_qemp.dart';
+import 'package:con_colegas/app/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:go_router/go_router.dart';
 
-import '../../constants.dart';
+import '../../core/constants.dart';
 import '../../domain/shared_preferences_impl.dart';
+import '../global/utils/get_qemp_pref.dart';
 
-class ConfiguracionPage extends StatefulWidget {
-  const ConfiguracionPage({Key? key}) : super(key: key);
+class SettingsView extends StatefulWidget {
+  const SettingsView({Key? key}) : super(key: key);
 
   @override
-  _ConfiguracionPageState createState() => _ConfiguracionPageState();
+  State<SettingsView> createState() => _SettingsViewState();
 }
 
-class _ConfiguracionPageState extends State<ConfiguracionPage> {
+class _SettingsViewState extends State<SettingsView> {
   String dropdownvalue = 'Español';
   var items = [
     'Català',
@@ -190,12 +191,7 @@ class _ConfiguracionPageState extends State<ConfiguracionPage> {
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          const ConfigQuienEsMasProbablePage()),
-                );
+                context.pushNamed(Routes.quienEsMasProbable);
               },
               child: const Padding(
                 padding: EdgeInsets.all(10.0),

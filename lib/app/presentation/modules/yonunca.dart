@@ -1,15 +1,15 @@
-import 'package:con_colegas/constants.dart';
+import 'package:con_colegas/app/core/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:con_colegas/domain/datos/datos_yonunca.dart';
+import 'package:con_colegas/app/data/datos/datos_yonunca.dart';
 
-class YoNuncaPage extends StatefulWidget {
-  const YoNuncaPage({Key? key}) : super(key: key);
+class YoNuncaView extends StatefulWidget {
+  const YoNuncaView({Key? key}) : super(key: key);
 
   @override
-  _YoNuncaPageState createState() => _YoNuncaPageState();
+  State<YoNuncaView> createState() => _YoNuncaViewState();
 }
 
-class _YoNuncaPageState extends State<YoNuncaPage> {
+class _YoNuncaViewState extends State<YoNuncaView> {
   @override
   Widget build(BuildContext context) {
     var frase = datos_yonunca().toString();
@@ -21,7 +21,7 @@ class _YoNuncaPageState extends State<YoNuncaPage> {
               style: TextStyle(fontSize: 20, color: Colors.white),
             ),
             leading: const BackButton(color: Colors.white),
-            backgroundColor: kColrPrim,
+            backgroundColor: AppColors.primary,
             elevation: 0,
             centerTitle: true),
         body: SingleChildScrollView(
