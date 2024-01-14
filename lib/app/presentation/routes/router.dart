@@ -13,7 +13,7 @@ import 'routes.dart';
 
 mixin RouterMixin on ConsumerState<ConColegasApp> {
   GoRouter? _router;
-  late String _initialRouteName;
+  String? _initialRouteName;
 
   bool _loading = true;
   bool get loading => _loading;
@@ -45,7 +45,7 @@ mixin RouterMixin on ConsumerState<ConColegasApp> {
         builder: (_, __) => const VerdadORetoView(),
       ),
       GoRoute(
-        name: Routes.configuracion,
+        name: Routes.settings,
         path: '/settings',
         builder: (_, __) => const SettingsView(),
       ),

@@ -1,6 +1,7 @@
 import 'package:con_colegas/app/core/constants.dart';
 import 'package:con_colegas/app/presentation/routes/routes.dart';
 import 'package:con_colegas/app/presentation/widgets/custom_button.dart';
+import 'package:con_colegas/app/presentation/widgets/options_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,6 +19,7 @@ class _HomeViewState extends State<HomeView> {
     final bloque = height / 10;
 
     return Scaffold(
+      endDrawer: const OptionsDrawer(),
       appBar: AppBar(
         title: Row(
           children: [
@@ -41,23 +43,14 @@ class _HomeViewState extends State<HomeView> {
         backgroundColor: Colors.black,
         elevation: 0,
         actions: [
-          PopupMenuButton<int>(
-              onSelected: (item) => onSelected(context, item),
-              color: const Color.fromARGB(255, 255, 226, 187),
-              icon: const Icon(
-                Icons.grain_rounded,
-                color: Colors.white,
-              ),
-              itemBuilder: (context) => [
-                    const PopupMenuItem<int>(
-                      value: 0,
-                      child: Text("Configuración"),
-                    ),
-                    const PopupMenuItem<int>(
-                      value: 1,
-                      child: Text("Contacto"),
-                    )
-                  ])
+          Builder(builder: (context) {
+            return IconButton(
+              onPressed: () {
+                Scaffold.of(context).openEndDrawer();
+              },
+              icon: const Icon(Icons.settings),
+            );
+          }),
         ],
       ),
       body: Padding(
@@ -78,7 +71,7 @@ class _HomeViewState extends State<HomeView> {
                 route: Routes.quienEsMasProbable),
             OutlinedButton(
               onPressed: () {
-                context.pushNamed(Routes.configuracion);
+                context.pushNamed(Routes.settings);
               },
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.all(20),
@@ -96,44 +89,5 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
     );
-  }
-
-  void onSelected(BuildContext context, int item) {
-    switch (item) {
-      case 0:
-        context.pushNamed(Routes.configuracion);
-        break;
-      case 1:
-        showModalBottomSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return Container(
-              height: 280,
-              color: Colors.white,
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    const Padding(
-                      padding: EdgeInsets.all(25.0),
-                      child: Text(
-                          "Terrassa, Barcelona. 2022.\n\nPara propuestas de frases o nuevos juegos, por favor contactad con el siguiente correo electrónico:\n\n gerard.ggf@gmail.com\n"),
-                    ),
-                    TextButton(
-                      child: const Text(
-                        'Cerrar',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: () => context.pop(context),
-                    )
-                  ],
-                ),
-              ),
-            );
-          },
-        );
-        break;
-    }
   }
 }
